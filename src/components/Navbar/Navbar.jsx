@@ -1,7 +1,7 @@
 
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
-
+import url from '../../url'
 const Navbar = ({ admin, setAdmin }) => {
     const navigate = useNavigate();
     return <>
@@ -17,7 +17,7 @@ const Navbar = ({ admin, setAdmin }) => {
                         {admin && <>
                             <Link className="nav-link " to="/admin/create" >New Car</Link>
                             <span style={{ cursor: "pointer" }} className="nav-link " onClick={() => {
-                                axios.get('http://localhost:9000/admin/logout', { withCredentials: true })
+                                axios.get(`${url}/admin/logout`, { withCredentials: true })
                                     .then(res => { setAdmin(null); alert("Logged Out"); navigate('/') })
                             }} >Log Out</span>
                         </>}

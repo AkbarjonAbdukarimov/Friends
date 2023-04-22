@@ -1,10 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Card from "./Card/Card"
+import url from "../url"
 
 const Home = ({ admin }) => {
     const [cars, setCars] = useState([])
-    const fetchCars = () => { axios.get('http://localhost:9000/cars').then(res => setCars(res.data)) }
+    const fetchCars = () => { axios.get(`${url}/cars`).then(res => setCars(res.data)) }
     useEffect(() => { fetchCars() }, [])
     return <>
         <div className="container">

@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import url from '../../url'
 const EditForm = ({ id }) => {
     const [car, setCar] = useState({ brand: '', category: '', model: '', price: '', images: [] })
     const [error, setError] = useState(null)
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`http://localhost:9000/cars/${id}`).then(res => setCar(res.data))
+        axios.get(`${url}/cars/${id}`).then(res => setCar(res.data))
     }, [])
 
     const handleChange = (e) => {

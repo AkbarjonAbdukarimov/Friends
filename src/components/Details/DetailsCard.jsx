@@ -1,11 +1,11 @@
 import axios from "axios"
 import { IKImage } from "imagekitio-react"
 import { useEffect, useState } from "react"
-
+import url from '../../url'
 const DetailsCard = ({ id }) => {
     const [car, setCar] = useState({ images: [] })
     useEffect(() => {
-        axios.get(`http://localhost:9000/cars/${id}`).then(res => setCar(res.data))
+        axios.get(`${url}/cars/${id}`).then(res => setCar(res.data))
         console.log(car)
     })
     return <div className="">

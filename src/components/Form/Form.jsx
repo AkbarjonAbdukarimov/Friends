@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Loading from '../Loading/Loading';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-
+import url from '../../url'
 const Form = () => {
     const [car, setCar] = useState({ brand: '', model: '', price: 0, category: '', images: [] })
     const [imgs, setImgs] = useState([])
@@ -34,7 +34,7 @@ const Form = () => {
         e.preventDefault()
         if (!isLoading) {
             try {
-                await axios.post('http://localhost:9000/cars/new', { ...car, images: imgs }, { withCredentials: true })
+                await axios.post(`${url}/cars/new`, { ...car, images: imgs }, { withCredentials: true })
                 navigate('/')
             } catch (err) {
 

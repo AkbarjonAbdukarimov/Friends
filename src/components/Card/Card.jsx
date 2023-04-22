@@ -1,12 +1,12 @@
 import axios from "axios"
 import { IKImage } from "imagekitio-react"
 import { Link, useNavigate } from "react-router-dom"
-
+import url from '../../url'
 const Card = ({ car, admin, fetchCars }) => {
     const navigate = useNavigate()
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:9000/cars/${car._id}`, { withCredentials: true })
+            await axios.delete(`${url}/cars/${car._id}`, { withCredentials: true })
             fetchCars()
             navigate('/')
         } catch (err) {
