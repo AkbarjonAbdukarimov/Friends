@@ -17,9 +17,10 @@ const EditForm = ({ id }) => {
         e.preventDefault();
 
         try {
-            await axios.put(`http://localhost:9000/cars/${car._id}`,
+            await axios.put(`${url}/cars/${car._id}`,
                 car,
-                { withCredentials: true })
+                { withCredentials: true });
+
             navigate('/')
         } catch (err) {
 
